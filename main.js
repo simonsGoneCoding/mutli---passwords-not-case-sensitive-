@@ -1,15 +1,26 @@
-// Projekt 5 - Zadanie dla Ciebie 
-// Sprawdź czy wpisane w input hasło pasuje do któegoś z hasel w tablicy. Jeśli tak wyświetl wiadomość w <div>
-//wielkość liter nie ma znaczenia (wykorzystaj metodę .toUpperCase lub .toLowerCase - pamiętaj, że metody te działają na pojedyńczym elemencie typu string)
-
 const input = document.querySelector("input");
-const passwords = ['jedEN', 'DwA'];
-const messages = ["super", "działa!"]
+const passwords = ['fiRsT', 'SeConD'];
+const messages = ["works", "working"]
+
+// const showMessage = (e) => {
+//     passwords.forEach((item, i) => {
+//         if (item.toLocaleLowerCase() === e.target.value.toLocaleLowerCase()) {
+//             document.querySelector('div').textContent = messages[i];
+//         }
+//     })
+// }
+
+//----------forEach()--------
+
+passwords.forEach((password, index) => {
+    passwords[index] = password.toLocaleLowerCase();
+})
 
 const showMessage = (e) => {
-    passwords.forEach((item, i) => {
-        if (item.toLocaleLowerCase() === e.target.value.toLocaleLowerCase()) {
-            document.querySelector('div').textContent = messages[i];
+    passwords.forEach((password, index) => {
+        const input = e.target.value
+        if (password === input) {
+            document.querySelector('div').textContent = messages[index];
         }
     })
 }
